@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>dog_form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/69e5f61610.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top  align-items-start">
+        <div class="col-2">
+        </div>
+        <div class="col-7">
+            <div class="container col-md-12 nav-part d-flex justify-content-center align-items-center">
+                <div class="oscar-part">
+                    <a th:href="@{/}" class="nav-link"><i class="fas fa-home" style="color: maroon"></i>HOME
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navLinks">
+                    <div class="col-md-12 navbar-nav d-flex justify-content-around">
+                        <div class="nav-item">
+                            <a href="" class="nav-link" style="color: indianred">ADD PET </a>
+                        </div>
+
+                        <div class="nav-item">
+                            <a href="" class="nav-link" style="color: indianred">DOGS </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="" class="nav-link" style="color: indianred">CATS </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="" class="nav-link" style="color: indianred">ALL PETS </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+<!--            ABOUT US-->
+        </div>
+    </nav>
+</div>
+
+<div class="jumbotron-fluid">
+    <div class="row">
+        <!--    first column section-->
+        <div class="col-2 ">
+            <br/><br/><br/>
+            <div class="d-flex flex-column align-items-center">
+                <div class="row oscar-title">
+
+                    <i class="fas fa-paw fa-4x"></i>
+                    <h2><span style="font-size: 3rem">
+                            O</span>SCAR'S
+                    </h2>
+                </div>
+
+                <div><h5 class="oscar-title d-none d-lg-block">Petcare is essential.</h5></div>
+
+                <div><h5 class="oscar-title d-none d-lg-block">That's why we're here.</h5></div>
+
+                <div><h5 class="oscar-title d-none d-lg-block">That's why we're open.</h5></div>
+            </div>
+            <br/>
+        </div>
+        <!--    second column section-->
+        <div class="col-7 ">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
+
+    <!--    third column section-->
+    <div class="col-3  "></div>
+</div>
+
+<!--second jumbotron including section-->
+<div class="row">
+    <!--    first column section-->
+    <div class="col-2">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box d-flex align-items-stretch justify-content-end">
+                    <span th:if="${customer.petType=='dog'}">
+                    <img src="dog2.jpg" alt="dog" style="padding-left: 10%"/>
+                    </span>
+
+                    <span th:unless="${customer.petType=='dog'}">
+                    <img src="cat3.jpg" alt="cat" style="padding-left: 10%"/>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    second column section-->
+    <div class="col-7 ">
+
+        <div class="jumbotron-fluid d-flex justify-content-center">
+
+            <form action="#" th:action="@{/addPet}" th:object="${customer}" th:method="post">
+                <input type="hidden" th:field="*{customerName}">
+                <input type="hidden" th:field="*{phoneNumber}">
+                <input type="hidden" th:field="*{petType}">
+
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body" style="color: maroon; text-align: center">
+                        <h5 class="card-title">Please Enter Pet Information</h5>
+                        <p class="card-text">We strive for excellence. You are in the right place for your pet. Thank
+                            you for believing in us.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item col-md-12">
+                            <h6>
+                                <small class="text-muted" style="text-align: left">Pet Name: </small>
+                            </h6>
+                            <div class="col-md-10 offset-md-2">
+                                <input type="text" th:field="*{pet.petName}" style="width: 100%"/>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item col-md-12">
+                            <h6>
+                                <small class="text-muted" style="text-align: left">Pet age: </small>
+                            </h6>
+                            <div class="col-md-10 offset-md-2">
+                                <input type="text" th:field="*{pet.age}" style="width: 100%"/>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <h6><small class="text-muted" style="text-align: left">Pet Gender: </small></h6>
+                            <div class="col-md-10 offset-md-2">
+                                <div class="form-check form-check-inline">
+                                    <input th:field="*{pet.gender}" class="form-check-input" type="radio" name="inlineRadioOptions"
+                                           id="inlineRadio1" value='male'/>
+                                    <label class="form-check-label text-muted" for="inlineRadio1"><h6><small>Male</small>
+                                    </h6></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input th:field="*{pet.gender}" class="form-check-input" type="radio" name="inlineRadioOptions"
+                                           id="inlineRadio2" value='female'/>
+                                    <label class="form-check-label text-muted" for="inlineRadio2"><h6><small>Female</small>
+                                    </h6></label>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item col-md-12">
+                            <h6>
+                                <small class="text-muted" style="text-align: left">Pet Breed: </small>
+                            </h6>
+                            <div class="col-md-10 offset-md-2">
+                                <span th:if="${customer.petType=='dog'}">
+                                    <select name="pet_breed" th:field="*{pet.breedType}">
+                                        <option name="pet" th:text="Alaskan_Husky" th:value='Alaskan_Husky'></option>
+                                        <option name="pet" th:text="Boxer" th:value='Boxer'></option>
+                                        <option name="pet" th:text="Chihuahua" th:value='Chihuahua'></option>
+                                        <option name="pet" th:text="Golden_Retriever" th:value='Golden_Retriever'></option>
+                                        <option name="pet" th:text="Maltese" th:value='Maltese'></option>
+                                        <option name="pet" th:text="Poodle" th:value='Poodle'></option>
+                                        <option name="pet" th:text="Shar_Pei" th:value='Shar_Pei'></option>
+                                        <option name="pet" th:text="Yorkshire_Terrier" th:value='Yorkshire_Terrier'></option>
+                                    </select>
+                                </span>
+
+                                <span th:unless="${customer.petType=='dog'}">
+                                    <select name="pet_breed" th:field="*{pet.breedType}">
+                                        <option name="pet" th:text="Abyssinian" th:value='Abyssinian'></option>
+                                        <option name="pet" th:text="Asian_Semi-longhair"
+                                                th:value='Asian_Semi-longhair'></option>
+                                        <option name="pet" th:text="Birman" th:value='Birman'></option>
+                                        <option name="pet" th:text="Bombay" th:value='Bombay'></option>
+                                        <option name="pet" th:text="Korat" th:value='Korat'></option>
+                                        <option name="pet" th:text="Russian_Blue" th:value='Russian_Blue'></option>
+                                        <option name="pet" th:text="Sphinx" th:value='Sphinx'></option>
+                                    </select>
+                                </span>
+                            </div>
+                        </li>
+                        <!--    ////////////////ELSE////////////////////ELSE///////////////////////////ELSE////////////-->
+
+                        <li class="list-group-item col-md-12">
+                            <h6>
+                                <small class="text-muted" style="text-align: left">Pet Information: </small>
+                            </h6>
+                            <div class="col-md-10 offset-md-2">
+                            <input type="text" th:field="*{pet.petInfo}" style="width: 100%"/>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item col-md-12">
+                            <div class="col-md-12 justify-content-center offset-4">
+                                <input class="pet-button-maroon" type="submit" value="ADD"
+                                       style="width:30%"/>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="card-body">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <!--    third column section-->
+    <div class="col-3  ">
+        <div class="col-sm-12">
+            <div class="box d-flex align-items-stretch justify-content-center">
+                <span th:if="${customer.petType=='dog'}">
+                    <img src="dog44.jpg" alt="dog" />
+                    </span>
+
+                <span th:unless="${customer.petType=='dog'}">
+                    <img src="cat4.jpg" alt="cat"/>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ////////////////IF///////////////////////IF/////////////////////////IF-->
+
+</form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

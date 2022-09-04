@@ -1,0 +1,115 @@
+body{
+    background-color: burlywood;
+    /*background-color: #f5d9d5;*/
+}
+
+.nav-link {
+    font-family: "Nunito", sans-serif;
+}
+/*///////////////////NAV BAR START/////////////////////////NAVBAR START///////////////////*/
+#mainNavbar {
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+#mainNavbar .nav-link {
+    color: maroon;
+}
+#mainNavbar .nav-link:hover {
+    color: lightcoral;
+}
+
+
+#mainNavbar .navbar-brand {
+    color: rosybrown;
+}
+.navbar.scrolled {
+    background-color: red;
+    transition: background-color 500ms;
+    color: blue;
+    /*-webkit-text-decoration-color: blue;*/
+}
+.form-inline {
+    background-color: burlywood;
+    /*background-color: maroon;*/
+}
+/*////////////////END/////////////////NAVBAR////////////////////////END////////////NAVBAR//////////////*/
+.jumbotron-fluid {
+    background-color: burlywood;
+    padding-top: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    color: black;
+    border-radius: 0%;
+    width: 100%;
+}
+.jumbotron {
+    padding-left: 10%;
+    padding-top: 0%;
+    background-color: burlywood;
+}
+.card-header {
+    background-color: #f5d9d5;
+}
+
+.spacing-btn-cards {
+    width: 1rem;
+    height: 4rem;
+    /*border: 4px solid green;*/
+}
+.left-spacing-btn-cards {
+    width: 4rem;
+    height: 3rem;
+    /*border: 4px solid yellow;*/
+}
+
+.col-md-9 {
+    justify-content: center;
+}
+.card-header div {
+    /*border: 1px solid blue;*/
+}
+.update-col {
+    padding: 0%;
+    text-align: center;
+    /*border-left: 2px solid maroon;*/
+    /*border-right: 2px solid maroon;*/
+}
+.delete-col {
+    padding: 0%;
+    text-align: center;
+    /*border-right: 2px solid maroon;*/
+}
+img {
+    max-width: 110%;
+    max-height: 110%;
+    display: block;
+}
+.box {
+    padding: 0%;
+    margin: 0%;
+    /*width: 100px;*/
+}
+.customer-right{
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    height: 400px;
+    object-fit: cover;
+}
+
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+.bottom-line {
+    background-color: #f5d9d5 ;
+    height: 20px;
+}
+.oscar-title {
+    font-family: 'Dancing Script', cursive;
+}
+.oscar-bottom-title {
+    font-family: 'Dancing Script', cursive;
+    color: maroon;
+}

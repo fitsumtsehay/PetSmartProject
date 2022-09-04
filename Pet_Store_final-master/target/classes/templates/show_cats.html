@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>show_dogs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/69e5f61610.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top  align-items-start">
+        <div class="col-2">
+        </div>
+        <div class="col-7">
+            <div class="container col-md-12 nav-part d-flex justify-content-center align-items-center">
+                <div class="oscar-part">
+                    <a th:href="@{/}" class="nav-link"><i class="fas fa-home" style="color: maroon"></i>HOME
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navLinks">
+                    <div class="col-md-12 navbar-nav d-flex justify-content-around">
+                        <div class="nav-item">
+                            <a th:href="@{/}" class="nav-link">ADD PET </a>
+                        </div>
+
+                        <div class="nav-item">
+                            <a th:href="@{/showdogs}" class="nav-link">DOGS </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="" class="nav-link" style="color: indianred">CATS </a>
+                        </div>
+                        <div class="nav-item">
+                            <a th:href="@{/showall}" class="nav-link">ALL PETS </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="jumbotron-fluid">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-2">
+                <br/><br/><br/>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="row oscar-title">
+
+                        <i class="fas fa-paw fa-4x"></i>
+                        <h2><span style="font-size: 3rem">
+                            O</span>SCAR'S
+                        </h2>
+                    </div>
+
+                    <div><h5 class="oscar-title d-none d-lg-block">Petcare is essential.</h5></div>
+
+                    <div><h5 class="oscar-title d-none d-lg-block">That's why we're here.</h5></div>
+
+                    <div><h5 class="oscar-title d-none d-lg-block">That's why we're open.</h5></div>
+                </div>
+                <br/>
+            </div>
+
+            <div class="col-7">
+                <div class="container head-j">
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="col-3">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--////////////END///////////////JUMBOTRON///////////////////////JUMBOTRON///////////////////////-->
+<div class="row">
+    <!--/////////////START///////////////THREE COL DIVISION///////////////////////THREE COL DIVISION///////////////////////-->
+
+    <!--/////////////START///////////////FIRST COL DIVISION///////////////////////FIRST COL DIVISION///////////////////////-->
+    <div class="col-2 first-col">
+        <div class="left-div">
+            <div class="sticky">
+                <div class="box">
+                    <img src="cat.jpg" alt="dog">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/////////////END///////////////FIRST COL DIVISION///////////////////////FIRST COL DIVISION///////////////////////-->
+
+    <!--/////////////START///////////////SECOND COL DIVISION///////////////////////SECOND COL DIVISION///////////////////////-->
+    <div class="col-7">
+        <div class="jumbotron jt-for-card col-md-12 justify-content-center rounded-0">
+            <div class="row">
+
+
+
+                <tr th:each="customer: ${catOwners}">
+                    <span th:if="${customer.petType} == 'cat'">
+
+        <!--            ///////start///////////card///////////////////-->
+                        <div class="row">
+                            <form class="form-inline justify-content-center">
+                                <div class="left-spacing-btn-cards">
+                                </div>
+
+                                <div class="col-md-11 justify-content-center">
+
+                                    <div class="card" style="width: 22rem; height: 30rem;">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col-lg-2">
+                                                        <h6><small class="text-muted">ID:</small></h6>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <h6><strong style="color: maroon; text-align: left; padding-left: 0%"><td th:text="${customer.id}"/></strong></h6>
+                                                    </div>
+
+                                                    <div class="col-lg-3 update-col">
+                                                        <h6>
+                                                            <a th:href="@{/update(id=${customer.id})}" style="color: maroon">
+                                                            <span style="font-weight: bolder">| </span> <small class="text-muted">UPDATE</small><span style="font-weight: bolder"> |</span>
+                                                            </a>
+                                                        </h6>
+                                                    </div>
+
+                                                    <div class="col-lg-3 delete-col">
+                                                        <h6>
+                                                            <a th:href="@{/delete(id=${customer.id})}" style="color: maroon">
+                                                            <small class="text-muted" style="text-align: left">DELETE</small><span style="font-weight: bolder"> |</span>
+                                                            </a>
+                                                        </h6>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+
+                                                        <h6><small class="text-muted" style="text-align: left">Customer Name:</small></h6>
+                                                        <p><strong><td th:text="${customer.customerName}"/></strong></p>
+
+                                                </li>
+                                                <!--            ///////////////////-->
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                            <h6><small class="text-muted">Phone Number:</small></h6>
+                                                        <div class="left" style="padding-left: 2rem">
+                                                            <td th:text="${customer.phoneNumber}"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!--            ///////////////////-->
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                            <h6><small class="text-muted">Pet Name:</small></h6>
+                                                        <div class="left" style="padding-left: 2rem">
+                                                            <td th:text="${customer.pet.petName}"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!--            ///////////////////-->
+                                                <li class="list-group-item">
+<!--                                                            /////////////////////////first row//////////////////-->
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <div>
+                                                                    <h6><small class="text-muted">Pet Type:</small></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-5">
+                                                                <div>
+                                                                    <h6><small class="text-muted">Pet Gender:</small></h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-3 d-flex justify-content-center">
+                                                                <div class="row">
+                                                                    <h6><small class="text-muted">Age:</small></h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--/////////////////////////second row//////////////////-->
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <div class="left" >
+                                                                    <span style="color: maroon"><h6>
+                                                                        <td th:text="${customer.petType}"/></h6></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-5">
+                                                                <div class="left">
+                                                                    <span style="color: maroon"><h6>
+                                                                        <td th:text="${customer.pet.gender}"/></h6></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <div class="left" >
+                                                                    <td th:text="${customer.pet.age}"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!--            ///////////////////-->
+
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                            <h6><small class="text-muted">Breed Type:</small></h6>
+                                                        <div class="left" style="padding-left: 2rem">
+                                                            <td th:text="${customer.pet.breedType}"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!--            ///////////////////-->
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                            <h6><small class="text-muted">Pet Information:</small></h6>
+                                                        <div class="left" style="padding-left: 2rem">
+                                                            <td th:text="${customer.pet.getPetInfo()}"/>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div> <!-- end of card-->
+                                </div>
+
+                                <div class="spacing-btn-cards"><p></p>
+                                </div>
+                            </form>
+                        </div>  <!-- row division-->  <!-- end of card row -->
+                    </span>
+                </tr>
+            </div>
+        </div>
+    </div>
+
+    <!--/////////////END///////////////SECOND COL DIVISION///////////////////////SECOND COL DIVISION///////////////////////-->
+
+    <!--/////////////START///////////////THIRD COL DIVISION///////////////////////THIRD COL DIVISION///////////////////////-->
+
+    <div class="col-3">
+        <div class="col-md-12">
+            <div class="sticky">
+                <div class="box">
+                    <img src="cat_farm.jpg" alt="cat">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--/////////////END///////////////THIRD COL DIVISION///////////////////////THIRD COL DIVISION///////////////////////-->
+
+</div>
+<!--/////////////END///////////////THREE COL DIVISION///////////////////////THREE COL DIVISION///////////////////////-->
+
+</form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    $(function() {
+        $(document).scroll(function() {
+            var $nav = $("#mainNavbar");
+            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        })
+    })
+</script>
+</body>
+</html>
