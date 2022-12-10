@@ -1,1 +1,1 @@
-###	A pet store app that adds/update/delete as well as lists pets to the inventory
+###	This pet store app let users add pets to the inventory as well as update/delete the inventory
